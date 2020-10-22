@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from .serializers import *
 from .models import *
 
+
 @api_view(['GET', 'POST'])
 def game_categories(request, slug, game_type):
     game_type = game_type.lower()
@@ -109,3 +110,5 @@ def games_by_vendor(request, vendor_slug):
         response = live_games_serializer.data + slot_games_serializer.data
         return Response(response)
         
+
+

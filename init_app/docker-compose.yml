@@ -9,3 +9,21 @@ services:
       - '.:/app'
     ports:
       - '8000:8000'
+
+  redis:
+    image: 'redis:alpine'
+    command: redis-server
+    ports:
+      - '6379:6379'
+
+  celery:
+    build: .
+    command: celery -A init_app worker -l info
+    volumes:
+      - .:/init_app
+
+  celery-beat:
+    build: .
+    command: celery -A init_app beat -l info
+    volumes:
+      - .:/init_app

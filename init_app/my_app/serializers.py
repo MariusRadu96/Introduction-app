@@ -30,3 +30,4 @@ class SlotGameSerializer(serializers.ModelSerializer):
     class Meta:
         model = SlotGame
         fields = ('name', 'game_type', 'slug', 'vendor' , 'categories', 'jackpot', 'jackpot_currency') 
+

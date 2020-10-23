@@ -9,6 +9,8 @@ services:
       - '.:/app'
     ports:
       - '8000:8000'
+    depends_on:
+      - redis
 
   redis:
     image: 'redis:alpine'
@@ -20,10 +22,14 @@ services:
     build: .
     command: celery -A init_app worker -l info
     volumes:
-      - .:/init_app
+      - .:/app
+    depends_on: 
+      - redis
 
   celery-beat:
     build: .
     command: celery -A init_app beat -l info
     volumes:
-      - .:/init_app
+      - .:/app
+    depends_on: 
+      - redis

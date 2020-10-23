@@ -7,9 +7,7 @@ from celery.schedules import crontab
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'init_app.settings')
 
 app = Celery('init_app')
-
 app.config_from_object('django.conf:settings', namespace='CELERY')
-
 app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
@@ -20,12 +18,12 @@ app.conf.beat_schedule = {
 
     'new_vendors': {
         'task': 'my_app.tasks.new_vendor',
-        'schedule' : crontab(0, '*','*', '*', '*')
+        'schedule' : crontab(0, '*', '*', '*', '*')
     },
 
     'new_categories': {
         'task': 'my_app.tasks.new_categories',
-        'schedule' : crontab(0, '*','*', '*', '*')
+        'schedule' : crontab(5, '*', '*', '*', '*')
         
     },
 }

@@ -3,7 +3,7 @@ import json
 import requests
 from django.utils.text import slugify
 from .models import Vendor, Category, LiveGame, SlotGame
-# from.views import game_categories
+
 
 def get_random_name():
     alphanum = ['a' ,'b', 'c', 'd', 'e', 'x', 'y', 'z' , '0', '1', '2',
@@ -55,7 +55,6 @@ def generate_fake_names(item):
         'slug': slug
     }
 
-    #return params
     return json.dumps(params)
 
 # def simulate_api_call(endpoint, params):

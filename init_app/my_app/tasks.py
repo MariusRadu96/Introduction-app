@@ -10,8 +10,6 @@ from .utils import create_new_game, generate_fake_names
 @shared_task
 def new_game():
     ind = random.choice([True, False])
-    #print(ind)
-    #print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     create_new_game(ind)
     
 
@@ -38,4 +36,5 @@ def new_categories():
             pass
         else:
             category = Category(**new_category)
+
             category.save()

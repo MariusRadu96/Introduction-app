@@ -11,8 +11,8 @@ def get_random_name():
     name = ''
     for i in range(10):
         name += random.choice(alphanum)
-
     return name
+
 
 def create_new_game(game_type):
     vendors = Vendor.objects.all()
@@ -47,14 +47,12 @@ def generate_fake_names(item):
         alt = 'Category '
     else:
         pass
-
     name = "Fake " + alt + get_random_name()
     slug = slugify(name)
     params = {
         'name': name,
         'slug': slug
     }
-
     return json.dumps(params)
 
 # def simulate_api_call(endpoint, params):

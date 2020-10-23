@@ -15,8 +15,6 @@ class VendorSerializer(serializers.ModelSerializer):
 
 
 class LiveGameSerializer(serializers.ModelSerializer):
-    # vendor_name = serializers.ReadOnlyField(source='vendor')
-    # categories_name = serializers.ReadOnlyField(source='categories')
 
     class Meta:
         model = LiveGame
@@ -24,8 +22,6 @@ class LiveGameSerializer(serializers.ModelSerializer):
 
 
 class SlotGameSerializer(serializers.ModelSerializer):
-    # vendor_name = serializers.ReadOnlyField(source='vendor')
-    # categories_name = serializers.ReadOnlyField(source='categories')
     
     class Meta:
         model = SlotGame

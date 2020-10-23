@@ -6,7 +6,6 @@ from .models import Vendor, Category
 from .utils import create_new_game, generate_fake_names
 
 
-
 @shared_task
 def new_game():
     ind = random.choice([True, False])
@@ -20,7 +19,7 @@ def new_vendors():
         new_vendor = json.loads(new_vendor)
 
         if Vendor.objects.filter(slug=new_vendor['slug']).exists():
-            pass
+            continue
         else:
             vendor = Vendor(**new_vendor)
             vendor.save()
@@ -33,7 +32,7 @@ def new_categories():
         new_category = json.loads(new_category)
 
         if Category.objects.filter(slug=new_category['slug']).exists():
-            pass
+            continue
         else:
             category = Category(**new_category)
 
